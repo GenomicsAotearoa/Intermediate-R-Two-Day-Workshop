@@ -1,0 +1,33 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Home"
+  open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
+  #page-footer: "Made with ❤️ and Quarto"
+  sidebar:
+    style: "docked"
+    contents:
+      - text: "Introduction"
+        href: index.qmd
+      - section: "Day One"  
+        href: day_1_overview.qmd
+        contents:
+          - episode_1.qmd
+      - section: "Day Two" 
+        href: day_2_overview.qmd 
+        contents:
+          - episode_4.qmd
+
+#      - section: "Supplementary"
+#        contents:
+#        - href: supplementary_1.qmd
+#          text: Supplementary 1
+
+
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+    navigation: true

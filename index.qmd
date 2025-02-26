@@ -1,0 +1,47 @@
+---
+title: "Intermediate R"
+subtitle: "String manipulation, functions and iterations"
+image: r-logo.png
+about: # https://www.genomics-aotearoa.org.nz/
+  template: trestles
+
+---
+
+In this workshop you will begin to learn intermediate level skills in the R programming language. There are many skills and tools that could be defined as "intermediate level", and here we will work with just a small number. This workshop will be taught over two mornings from 9am - 1pm. 
+
+
+
+**Day 1**
+
+- String manipulation
+
+- Managing and manipulating relational data
+
+**Day 2**
+
+- Writing functions
+
+- Using iterations
+
+## Prerequisites 
+
+To fully engage with the material in this workshop, you will need:
+
+**An [Introductory level of R](https://genomicsaotearoa.github.io/Introduction-to-R/) including:**
+
+- Variable assignment
+
+- Mathematical and Boolean operators
+
+- Data modes
+
+- Importing data
+
+**Some familiarity with the tidyverse dialect of R, as shown [here](https://genomicsaotearoa.github.io/Introduction-to-R/appendix/05-dplyr/):**
+
+- mutate() and filter()
+
+- group_by() and summarise()
+
+- The pipe: %>%
+

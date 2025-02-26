@@ -1,0 +1,15 @@
+---
+title: Day One Overview
+---
+
+The focus of Day 1 is string manipulation and managing data across files
+
+String manipulation will involve:
+
+- Regular expressions (regex)
+
+- The functions str_detect, str_subset, str_replace
+
+Managing data across files will involve:
+
+- The join family of functions
