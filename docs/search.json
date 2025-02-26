@@ -1,0 +1,42 @@
+[
+  {
+    "objectID": "day_1_overview.html",
+    "href": "day_1_overview.html",
+    "title": "Day One Overview",
+    "section": "",
+    "text": "The focus of Day 1 is string manipulation and managing data across files\nString manipulation will involve:\n\nRegular expressions (regex)\nThe functions str_detect, str_subset, str_replace\n\nManaging data across files will involve:\n\nThe join family of functions",
+    "crumbs": [
+      "Day One"
+    ]
+  },
+  {
+    "objectID": "day_2_overview.html",
+    "href": "day_2_overview.html",
+    "title": "Day Two Overview",
+    "section": "",
+    "text": "The focus of Day 2 is functions and iterations\nFunctions\nIterations",
+    "crumbs": [
+      "Day Two"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Intermediate R",
+    "section": "",
+    "text": "In this workshop you will begin to learn intermediate level skills in the R programming language. There are many skills and tools that could be defined as “intermediate level”, and here we will work with just a small number. This workshop will be taught over two mornings from 9am - 1pm.\nDay 1\nDay 2",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#prerequisites",
+    "href": "index.html#prerequisites",
+    "title": "Intermediate R",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nTo fully engage with the material in this workshop, you will need:\nAn Introductory level of R including:\n\nVariable assignment\nMathematical and Boolean operators\nData modes\nImporting data\n\nSome familiarity with the tidyverse dialect of R, as shown here:\n\nmutate() and filter()\ngroup_by() and summarise()\nThe pipe: %&gt;%",
+    "crumbs": [
+      "Introduction"
+    ]
+  }
+]
