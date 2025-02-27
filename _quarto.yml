@@ -19,6 +19,8 @@ website:
         href: day_2_overview.qmd 
         contents:
           - episode_4.qmd
+      - section: "Supplementary"
+
 
 #      - section: "Supplementary"
 #        contents:

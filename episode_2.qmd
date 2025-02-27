@@ -1,0 +1,12 @@
+---
+title: Episode 2 - String manipulation
+toc: true
+---
+
+It's a good day when the data you receive is in the exact format you need for your analysis. Much more frequently, you will need to carry out some form of data tidying. Data tidying is a general term to describe things like renaming columns, removing rows with missing data, or combining data from different files. This episode will focus on string manipulation - combining, removing, or renaming strings of characters. The next episode will focus on integrating data from different files. 
+
+Let's look at some example data to demonstrate what we are going to try and do today:
+
+![Taxon column in the tax object](images/fig_tax_taxon.png)
+
+In this file individual rows represent sequences which have been assigned a taxonomic lineage. The Taxon column is not particularly human readable right now, but let's say we wanted to modify this into something shorter and cleaner that we could attach to samples in a figure (*e.g.,* convert row 1 to read "Bacteria, Cyanobacteria"). If this was a single row, we would probably do this in excel - but since there are more than 4,000 rows, we want to automate this process. This type of string manipulation is very powerful and is something you can expect to regularly carry out in your data analysis career. 

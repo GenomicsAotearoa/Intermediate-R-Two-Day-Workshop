@@ -3,3 +3,46 @@ title: Episode 1 - Setting Up
 toc: true
 ---
 
+## An introduction to the data
+
+The data that we will be working with today came from sequences generated for this [study](https://enviromicro-journals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15550) of nitrogen cycling within prokaryotic communities. Our data is a subset of the sequence data reanalysed using a popular amplicon sequence processing pipeline QIIME2.
+
+Note that *you do not need to be familiar with this type of data* to follow along with this workshop. In fact, it is common in data analysis to encounter files and data types that you are not experienced with. In this case it is important to focus on the fundamentals: keeping note of file names, sample/column names, and making yourself familiar with what data is included in each of your files. Below is a brief explanation of the data structure, which will be all you need to proceed. 
+
+This data consists of 21 sediment samples taken from the Waiwera Estuary (North of Auckland). It was part of a study that looked at how prokaryotic communities and their nitrogen cycling fractions changed along a gradient of mud contents. Alongside sequence data, environmental variables such as mud content (percentage dry weight of clays and silt) and various chemical data such as carbon, nitrogen, sulfur and phosphorus were also measured.
+
+This dataset follows a typical microbial ecology study structure, and has three distinct data files:
+
+- asv: a count of organisms (here, ASV or amplicon sequence variants) per sample
+
+- tax: describes the taxonomic lineage of ASVs
+
+- env: sample metadata describing various non-biological measurements obtained from the samples
+
+
+## Load packages and import data
+
+```{r}
+# Load the packages we will be using today
+library(vegan)
+library(dplyr)
+library(stringr)
+library(purrr)
+library(tidyr)
+library(tibble)
+library(ggplot2)
+
+# Import three data files stored remotely
+asv <- read.delim("https://raw.githubusercontent.com/GenomicsAotearoa/Intermediate-R/main/tables/asv_table.tsv")
+env <- read.delim("https://raw.githubusercontent.com/GenomicsAotearoa/Intermediate-R/main/tables/env_table.tsv")
+tax <- read.delim("https://raw.githubusercontent.com/GenomicsAotearoa/Intermediate-R/main/tables/taxonomy.tsv")
+```
+
+<footer class="navigation-buttons">
+  <a href="day_1_overview.qmd">
+    <button class="nav-button prev-button">Previous Page</button>
+  </a>
+  <a href="episode_2.qmd">
+    <button class="nav-button next-button">Next Page</button>
+  </a>
+</footer>
