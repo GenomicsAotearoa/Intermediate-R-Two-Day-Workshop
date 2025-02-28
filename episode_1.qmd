@@ -38,6 +38,7 @@ env <- read.delim("https://raw.githubusercontent.com/GenomicsAotearoa/Intermedia
 tax <- read.delim("https://raw.githubusercontent.com/GenomicsAotearoa/Intermediate-R/main/tables/taxonomy.tsv")
 ```
 
+
 <footer class="navigation-buttons">
   <a href="day_1_overview.qmd">
     <button class="nav-button prev-button">Previous Page</button>
