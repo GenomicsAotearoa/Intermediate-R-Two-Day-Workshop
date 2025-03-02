@@ -15,6 +15,7 @@ website:
         href: day_1_overview.qmd
         contents:
           - episode_1.qmd
+          - episode_2.qmd
       - section: "Day Two" 
         href: day_2_overview.qmd 
         contents:
