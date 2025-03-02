@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Episode 1 - Setting Up – Home</title>
+<title>Intermediate R – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -67,7 +33,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -103,12 +68,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Episode 1 - Setting Up – Home">
-<meta property="og:description" content="">
+<meta property="og:title" content="Intermediate R – Home">
+<meta property="og:description" content="String manipulation, functions and iterations">
+<meta property="og:image" content="r-logo.png">
 <meta property="og:site_name" content="Home">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -117,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day_1_overview.html">Day One</a></li><li class="breadcrumb-item"><a href="./episode_1.html">Episode 1 - Setting Up</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -159,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./episode_1.html" class="sidebar-item-text sidebar-link active">
+  <a href="./episode_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Episode 1 - Setting Up</span></a>
   </div>
 </li>
@@ -191,121 +157,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#an-introduction-to-the-data" id="toc-an-introduction-to-the-data" class="nav-link active" data-scroll-target="#an-introduction-to-the-data">An introduction to the data</a></li>
-  <li><a href="#load-packages-and-import-data" id="toc-load-packages-and-import-data" class="nav-link" data-scroll-target="#load-packages-and-import-data">Load packages and import data</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day_1_overview.html">Day One</a></li><li class="breadcrumb-item"><a href="./episode_1.html">Episode 1 - Setting Up</a></li></ol></nav>
+<div class="quarto-about-trestles">
+  <div class="about-entity">
+    <img src="r-logo.png" class="about-image
+  rounded " style="width: 20em;">
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Episode 1 - Setting Up</h1>
+<h1 class="title">Intermediate R</h1>
+<p class="subtitle lead">String manipulation, functions and iterations</p>
 </div>
-
-
-
 <div class="quarto-title-meta">
-
-    
-  
-    
   </div>
-  
-
-
 </header>
-
-
-<section id="an-introduction-to-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="an-introduction-to-the-data">An introduction to the data</h2>
-<p>The data that we will be working with today came from sequences generated for this <a href="https://enviromicro-journals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15550">study</a> of nitrogen cycling within prokaryotic communities. Our data is a subset of the sequence data reanalysed using a popular amplicon sequence processing pipeline QIIME2.</p>
-<p>Note that <em>you do not need to be familiar with this type of data</em> to follow along with this workshop. In fact, it is common in data analysis to encounter files and data types that you are not experienced with. In this case it is important to focus on the fundamentals: keeping note of file names, sample/column names, and making yourself familiar with what data is included in each of your files. Below is a brief explanation of the data structure, which will be all you need to proceed.</p>
-<p>This data consists of 21 sediment samples taken from the Waiwera Estuary (North of Auckland). It was part of a study that looked at how prokaryotic communities and their nitrogen cycling fractions changed along a gradient of mud contents. Alongside sequence data, environmental variables such as mud content (percentage dry weight of clays and silt) and various chemical data such as carbon, nitrogen, sulfur and phosphorus were also measured.</p>
-<p>This dataset follows a typical microbial ecology study structure, and has three distinct data files:</p>
+  </div>
+  <div class="about-contents"><main class="content" id="quarto-document-content">
+<p>In this workshop you will begin to learn intermediate level skills in the R programming language. There are many skills and tools that could be defined as “intermediate level”, and here we will work with just a small number. This workshop will be taught over two mornings from 9am - 1pm.</p>
+<p><strong>Day 1</strong></p>
 <ul>
-<li><p>asv: a count of organisms (here, ASV or amplicon sequence variants) per sample</p></li>
-<li><p>tax: describes the taxonomic lineage of ASVs</p></li>
-<li><p>env: sample metadata describing various non-biological measurements obtained from the samples</p></li>
+<li><p>String manipulation</p></li>
+<li><p>Managing and manipulating relational data</p></li>
 </ul>
-</section>
-<section id="load-packages-and-import-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-packages-and-import-data">Load packages and import data</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the packages we will be using today</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: permute</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: lattice</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Import three data files stored remotely</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>asv <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"https://raw.githubusercontent.com/GenomicsAotearoa/Intermediate-R/main/tables/asv_table.tsv"</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"https://raw.githubusercontent.com/GenomicsAotearoa/Intermediate-R/main/tables/env_table.tsv"</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>tax <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"https://raw.githubusercontent.com/GenomicsAotearoa/Intermediate-R/main/tables/taxonomy.tsv"</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>asv <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                             ASVID AS1A1 AS1A2 AS1A3 AS1B1 AS1B2 AS1B3 AS1C1
-1 88c2f5ea8fd2f13cbd43e933049707c9    45    22    37    50    55    51    49
-2 bab6b4a509dd01b93cbbf78e40616533    81    48    79    96    87    94    30
-3 24b484137e882a5c77ea93b4574332e1    70    16    53    86    55    74    11
-4 5d112573567f99604339d5d6b92bdea9    35    14    26    63    45    50    43
-5 864ea29bffe398510cca601c0ce546c2    61    32    37    72    75    61    14
-6 0d808daa4a3a539121a98948ba6caf1f    25    19    23    43    35    41    21
-  AS1C2 AS1C3 AS2A1 AS2A2 AS2A3 AS2B1 AS2B2 AS2B3 AS2C1 AS2C2 AS2C3 S3C1 S3C2
-1    70    54    68    24    80    62    37    39   114   118   122    8   56
-2    30    44    89    52    89    81    34    70    34    38    55    0    9
-3    25    19    90    46    66    43    53    65    22    28    38    0    0
-4    47    44    53    18    41    46    37    43    50    52    55    8   34
-5     0     6    55    49    80    69    56    61    23    12    25    0    6
-6    30    32    20     9    24    16    21    14    67    50    70    3   10
-  S3C3
-1   16
-2    2
-3    4
-4    4
-5    0
-6    0</code></pre>
-</div>
-</div>
-<footer class="navigation-buttons">
-<a href="./day_1_overview.html"> <button class="nav-button prev-button">Previous Page</button> </a> <a href="./episode_2.html"> <button class="nav-button next-button">Next Page</button> </a>
-</footer>
+<p><strong>Day 2</strong></p>
+<ul>
+<li><p>Writing functions</p></li>
+<li><p>Using iterations</p></li>
+</ul>
+<section id="prerequisites" class="level2">
+<h2 data-anchor-id="prerequisites">Prerequisites</h2>
+<p>To fully engage with the material in this workshop, you will need:</p>
+<p><strong>An <a href="https://genomicsaotearoa.github.io/Introduction-to-R/">Introductory level of R</a> including:</strong></p>
+<ul>
+<li><p>Variable assignment</p></li>
+<li><p>Mathematical and Boolean operators</p></li>
+<li><p>Data modes</p></li>
+<li><p>Importing data</p></li>
+</ul>
+<p><strong>Some familiarity with the tidyverse dialect of R, as shown <a href="https://genomicsaotearoa.github.io/Introduction-to-R/appendix/05-dplyr/">here</a>:</strong></p>
+<ul>
+<li><p>mutate() and filter()</p></li>
+<li><p>group_by() and summarise()</p></li>
+<li><p>The pipe: %&gt;%</p></li>
+</ul>
 
 
 </section>
-
-</main> <!-- /main -->
+</main></div>
+</div>
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -326,13 +226,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

@@ -74,6 +74,11 @@ Examples: 12345_log.txt, 001A_log.txt, 104++_chk.txt
 
 Here we will work with our example files with the aim to take the current taxonomy data and convert it into something more human readable. 
 
+#### Setup R environment
+```{r}
+source("setup.R")
+```
+
 ### Obtaining microbial taxonomy from DNA sequences
 
 A major aim of microbial ecology is the identification of populations across an environment. We do that by sequencing the amplicon of the 16S small subunit ribosomal RNA gene, the standard taxonomic marker. Then, sequences are clustered based on sequence similarity (to reduce redundancy and improve computational efficiency) and then assigned a taxonomic lineage using a classifier that compares our sequence data with those in a reference database (popular options are SILVA and Greengenes 2). Depending on how similar and well-represented the sampled sequences are to those in the database, our sequences will be assigned names and ranks ranging from domain to species.
@@ -83,6 +88,8 @@ A major aim of microbial ecology is the identification of populations across an 
 First, we will look at our current taxonomy field and familiarise ourselves with the data.
 
 ```{r}
+library(tidyverse)
+
 tax$Taxon %>% head()
 
 tax$Taxon %>% tail()
