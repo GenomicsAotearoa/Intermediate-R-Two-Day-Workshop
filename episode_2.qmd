@@ -22,27 +22,25 @@ Before we look at the functions we will use for string manipulation we need to i
 
 [0-9]+.*_(log|chk)\\.txt
 
-The regex above is probaby nonsensical to you. It might help to split it into the **rules** (symbols like the wildcard that are meaning something in the regex language) and the *arguments* (the patterns we are trying to match to):
+The regex above is probaby nonsensical to you. It might help to split it into the **rules** (symbols like the wildcard that are meaning something in the regex language) and the *arguments* (the patterns we are trying to match to).
 
-**[***0***-***9***]+.\****_***(***log***|***chk***)\\***.txt*
-
-Now we can read the arguments from left to right:
+We read the arguments from left to right:
 
 - [0-9] : The square brackets are symbols that specify a range - in this case, any number from 0 - 9. We could also use [a-e] to match any letters from a-e, or [DGT] to match any of the letters D, G, or T. You can think of values inside of square brackets as being very limited wildcards which will only replace a certain characters. 
 
-- + : The "+" is a modifier, which can be read as "match the preceeding pattern *one or more times*". The addition of the "+" symbol changes the regex from matching 0, or 1, or 5 (single digits only), to matching 0, or 10, or 55555593939483829. 
+- \+ : The "+" is a modifier, which can be read as "match the preceeding pattern *one or more times*". The addition of the "+" symbol changes the regex from matching 0, or 1, or 5 (single digits only), to matching 0, or 10, or 55555593939483829. 
 
-- . : The "." is the regex wildcard. This matches any character. An example use of this is when you have a mix of column names like "Sample_1", "Sample.1","Sample-1". 
+- .   : The "." is the regex wildcard. This matches any character. An example use of this is when you have a mix of column names like "Sample_1", "Sample.1","Sample-1" and you want to match with all of them, no matter what the separator symbol is. 
 
-- \* : The "\*" is another modifier, but this time it matches the preceeding pattern *zero or more times*. 
+- \* : The "\*" is another modifier, but this time it matches the preceeding pattern *zero or more times*. Use when the target pattern may or may not include something (*e.g.,* sampleA12, sampleA_13, sampleA__14)
 
-- _ : This is an _ (*i.e.,* we know that the string has *something*_*something*).
+- _ : This is an underscore (*i.e.,* we know that the string has *something*_*something*).
 
-- (log|chk) : There are two separate rules here. The () indicates that the patterns inside must be interpreted as words, while the "|" means "or". Together, this means "match to the word log or the word chk". 
+- (log|chk) : There are two separate rules here. The () indicates that the patterns inside must be interpreted as words, while the "|" means "or". Together, this means "match to the word log **or** the word chk". 
 
 - \\. : The "\\" is known as "escape", and we use it when we need to specify a "." or an "*" (so that they are interpreted as characters, rather than rules that modify the regex). 
 
-- txt : A set of characters.
+- txt : A set of characters, in this case the file suffix.
 
 **Exercise:** Can you read the regex? Use regular language to describe the type of pattern we are matching. Give one example of a pattern that the regex would match to, then give a different pattern.
 
@@ -88,8 +86,6 @@ A major aim of microbial ecology is the identification of populations across an 
 First, we will look at our current taxonomy field and familiarise ourselves with the data.
 
 ```{r}
-library(tidyverse)
-
 tax$Taxon %>% head()
 
 tax$Taxon %>% tail()
@@ -120,7 +116,9 @@ str_detect(tax$Taxon, "s__") %>%    # s__ indicates a species classification
 
 This tells us that of the 4,220 sequences with a taxonomic classification, 2040 were classified to the level of species ("s__"). 
 
-Most of the functions in the str_ family follow the same format:
+
+
+**NOTE** Most of the functions in the str_ family follow the same format:
 
 str_name(vector, regex pattern, additional arguments)
 
@@ -189,4 +187,59 @@ It is very reasonable to expect the pattern to return the *first* match (in our 
 
 This is explained by thinking of ".*" as **being greedy**. It will match as much as possible, while still allowing the rest of the pattern to match. In other words, we get the last possible case of Nitro captured, and all other cases are consumed by the greedy .\*. 
 
+
+This highlights a key way of thinking about regex - we should draw a distinction between the whole pattern that is being matched and what we are attempting to do with our function. The regex pattern is matching to everything in the taxon element, but our function is only interacting with a small section of that pattern.
 :::
+
+#### In case of failure
+
+If str_replace() cannot find matches for the given pattern, it will return the original string. This is a safety mechanism, which we can opt to filter out later. We can see this safety mechanism in action here:
+```{r}
+str_replace(nitro, ".*p__([^;]+).*g__([^;]+).*", "\\1, \\2") %>% 
+  unique()
+```
+
+In the 11th element the sequence has not been classified down to the level of genus ("g__"). Rather than returning something non-sensical, str_replace() has returned the full, original string. 
+
+### Other str_ functions
+
+There are many other functions in the str_ family, and while some are more specific, here are four other functions are broadly applicable:
+
+**str_c()** (concatenate) is used to combine string elements. str_c() takes either two vectors, or a vector and a single string, and requires a separator argument which can be any character. 
+
+An example case could be when samples are labelled "A", "B", "C" and you want to add "Sample" to the start of each.
+```{r}
+samples <- c("A","B","C")
+
+str_c("Sample_", samples, sep = "")
+```
+
+Or when you want to combine strings from two separate vectors. For this exampe we will use two hidden objects that are already stored in your R environment: fruit and words. These two data objects come from the stringr package (which loads all the str_() functions), and they are a useful place to test your str_ functions. 
+
+```{r}
+str_c(fruit[1:5], words[1:5], sep = ",")
+```
+
+
+**str_split()** performs the reverse function to str_c(). That is, it splits one string into two separate strings based on a pattern that will act as the separator.
+```{r}
+str_split(nitro, pattern = "; ") %>%
+    head(n = 1)
+```
+Here, str_split() has separated the every element of nitro into distinct strings. Useful for pulling out certain aspects of a long sample name.
+
+**str_glue()** is similar to str_c() in that it concatenates two elements into a string. However, str_glue() can take a value stored within {} as input and *evaluate* it. 
+```{r}
+favourite_gene <- c("BRAF")
+str_glue("My favourite gene is {favourite_gene}!")
+
+str_glue("The nitro object contains {length(nitro)} elements.")
+```
+
+**str_trim()** will probably be used less often but provides a useful function: the trimming of whitespaces at the start and end of strings. Having blank spaces at the end of strings can cause issues with naming files, or cause issues when trying to make matches. Note that str_trim() will only remove whitespaces at the start and end of a string.
+```{r}
+str_trim("  Get rid of these whitespaces!   ")
+```
+
+
+
